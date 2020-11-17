@@ -1,4 +1,5 @@
 # Front-End-Batch12-DiveIntoTopic
+
 ## Setup React Project (2h)
 
 ### Create a React app using create-react-app
@@ -9,7 +10,7 @@ Ref: [https://create-react-app.dev/docs/getting-started](https://create-react-ap
 2. Run the app
 
 ### Setup ESLint
-    
+
 1. Ensure ESLint plugin is working
 2. Customize ESLint rules (optional)
 
@@ -32,7 +33,7 @@ Ref: [https://create-react-app.dev/docs/adding-a-css-modules-stylesheet](https:/
 
 ### Deploy to GitHub
 
---- 
+---
 
 ## Complete a Todo List App (1d4h)
 

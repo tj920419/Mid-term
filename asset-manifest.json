@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/Front-End-Batch12-DiveIntoTopic/static/css/main.2e7919c8.chunk.css",
-    "main.js": "/Front-End-Batch12-DiveIntoTopic/static/js/main.c6128bd3.chunk.js",
-    "main.js.map": "/Front-End-Batch12-DiveIntoTopic/static/js/main.c6128bd3.chunk.js.map",
-    "runtime-main.js": "/Front-End-Batch12-DiveIntoTopic/static/js/runtime-main.f27a922e.js",
-    "runtime-main.js.map": "/Front-End-Batch12-DiveIntoTopic/static/js/runtime-main.f27a922e.js.map",
-    "static/js/2.0d48f46b.chunk.js": "/Front-End-Batch12-DiveIntoTopic/static/js/2.0d48f46b.chunk.js",
-    "static/js/2.0d48f46b.chunk.js.map": "/Front-End-Batch12-DiveIntoTopic/static/js/2.0d48f46b.chunk.js.map",
-    "static/js/3.16466410.chunk.js": "/Front-End-Batch12-DiveIntoTopic/static/js/3.16466410.chunk.js",
-    "static/js/3.16466410.chunk.js.map": "/Front-End-Batch12-DiveIntoTopic/static/js/3.16466410.chunk.js.map",
+    "main.js": "/Front-End-Batch12-DiveIntoTopic/static/js/main.6b814fcc.chunk.js",
+    "main.js.map": "/Front-End-Batch12-DiveIntoTopic/static/js/main.6b814fcc.chunk.js.map",
+    "runtime-main.js": "/Front-End-Batch12-DiveIntoTopic/static/js/runtime-main.e765dbca.js",
+    "runtime-main.js.map": "/Front-End-Batch12-DiveIntoTopic/static/js/runtime-main.e765dbca.js.map",
+    "static/js/2.685f6246.chunk.js": "/Front-End-Batch12-DiveIntoTopic/static/js/2.685f6246.chunk.js",
+    "static/js/2.685f6246.chunk.js.map": "/Front-End-Batch12-DiveIntoTopic/static/js/2.685f6246.chunk.js.map",
+    "static/js/3.c6650b30.chunk.js": "/Front-End-Batch12-DiveIntoTopic/static/js/3.c6650b30.chunk.js",
+    "static/js/3.c6650b30.chunk.js.map": "/Front-End-Batch12-DiveIntoTopic/static/js/3.c6650b30.chunk.js.map",
     "index.html": "/Front-End-Batch12-DiveIntoTopic/index.html",
     "static/css/main.2e7919c8.chunk.css.map": "/Front-End-Batch12-DiveIntoTopic/static/css/main.2e7919c8.chunk.css.map",
-    "static/js/2.0d48f46b.chunk.js.LICENSE.txt": "/Front-End-Batch12-DiveIntoTopic/static/js/2.0d48f46b.chunk.js.LICENSE.txt"
+    "static/js/2.685f6246.chunk.js.LICENSE.txt": "/Front-End-Batch12-DiveIntoTopic/static/js/2.685f6246.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.f27a922e.js",
-    "static/js/2.0d48f46b.chunk.js",
+    "static/js/runtime-main.e765dbca.js",
+    "static/js/2.685f6246.chunk.js",
     "static/css/main.2e7919c8.chunk.css",
-    "static/js/main.c6128bd3.chunk.js"
+    "static/js/main.6b814fcc.chunk.js"
   ]
 }

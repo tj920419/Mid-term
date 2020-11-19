@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 // import logo from './logo.svg';
-import styles from './App.module.scss';
+// import styles from './App.module.scss';
 import Form from './components/Form';
 import FilterButton from './components/FilterButton';
 import Todo from './components/Todo';
 import { nanoid } from 'nanoid';
 import ReactDOM from 'react-dom';
+// import { createStore } from 'redux';
 
 const FILTER_MAP = {
   All: () => true,
@@ -84,98 +85,298 @@ function App(props) {
       <Form addTask={addTask} />
       <div className='filters btn-group stack-exception'>{filterList}</div>
       <h2 id='list-heading'>{headingText}</h2>
-      <ul
+      <div
         role='list'
         className='todo-list stack-large stack-exception'
         aria-labelledby='list-heading'
       >
         {taskList}
-      </ul>
+      </div>
     </div>
   );
 }
 
-/*Class second try*/
-// let PreSetTasks = [
-//   { id: 'todo-0', name: 'Eat', completed: true },
-//   { id: 'todo-1', name: 'Sleep', completed: true },
-//   { id: 'todo-2', name: 'Repeat', completed: false },
-// ];
+/*======================================================
+====================Class second try====================
+======================================================*/
+class EveryThing extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      InputTaskEditing: '',
+      newTask: {
+        Id: '',
+        Name: '',
+        Completed: false,
+        Editing: false,
+        Vision: true,
+      },
+      data: [
+        {
+          Id: 'Homework',
+          Name: 'Homework',
+          Completed: false,
+          Editing: false,
+          Vision: true,
+        },
+        {
+          Id: 'Nap',
+          Name: 'Nap',
+          Completed: false,
+          Editing: false,
+          Vision: true,
+        },
+        {
+          Id: 'Exercise',
+          Name: 'Exercise',
+          Completed: true,
+          Editing: false,
+          Vision: true,
+        },
+      ],
+    };
+  }
 
-// class EveryThing extends React.Component {
-//   constructor(props) {
-//     super(props);
-//   }
+  // let PropsData = this.state.data;
 
-//   render() {
-//     return (
-//       <div>
-//         <form>
-//           <h2>What needs to be done?</h2>
-//           <input type='text'></input>
-//           <button type='submit'>Add</button>
-//         </form>
-//         <div>
-//           <button>Show All tasks</button>
-//           <button>Show Active tasks</button>
-//           <button>Show Completed tasks</button>
-//         </div>
-//         <h2>3 tasks remaining</h2>
-//         <ul>
-//           <li></li>
-//           <li></li>
-//           <li></li>
-//         </ul>
-//       </div>
-//     );
-//   }
-// }
+  render() {
+    let PropsData = this.state.data;
+    let ViewTemplateTotal = [];
 
-// window.addEventListener('load', () => {
-//   let RenderEveryThing = React.createElement(EveryThing, null);
-//   ReactDOM.render(RenderEveryThing, document.getElementById('root2'));
-// });
+    //Input New Task
+    let InputNewTask = (e) => {
+      this.state.newTask.Id = e.target.value;
+      this.state.newTask.Name = e.target.value;
+    };
 
-/*Class first try*/
-// class DivSpace extends React.Component {
-//   render() {
-//     return React.createElement('DIV', null, '');
-//   }
-// }
+    //Click Add New Task
+    let AddNewTask = () => {
+      PropsData.push(this.state.newTask);
+      this.setState({ data: PropsData });
+    };
 
-// class Title extends React.Component {
-//   render() {
-//     return React.createElement('H2', null, 'What needs to be done?');
-//   }
-// }
+    //Category--All
+    let showAll = () => {
+      for (let a = 0; a < PropsData.length; a += 1) {
+        PropsData[a].Vision = true;
+      }
+      this.setState({ data: PropsData });
+    };
 
-// class Input extends React.Component {
-//   render() {
-//     return React.createElement('INPUT', null, '');
-//   }
-// }
+    //Category--Active
+    let showActive = () => {
+      for (let b = 0; b < PropsData.length; b += 1) {
+        if (PropsData[b].Completed === false) {
+          PropsData[b].Vision = true;
+        } else if (PropsData[b].Completed === true) {
+          PropsData[b].Vision = false;
+        }
+      }
+      this.setState({ data: PropsData });
+    };
 
-// class EveryThing extends React.Component {
-//   render() {
-//     let DivSpaceRendering = React.createElement(DivSpace, null);
-//     let TitleRendering = React.createElement(Title, null);
-//     let InputRendering = React.createElement(Input, null);
-//     let EveryThingDetail = [
-//       DivSpaceRendering,
-//       DivSpaceRendering,
-//       TitleRendering,
-//       InputRendering,
-//     ];
-//     return React.createElement('DIV', null, EveryThingDetail);
-//   }
-// }
+    //Category--Completed
+    let showCompleted = () => {
+      for (let c = 0; c < PropsData.length; c += 1) {
+        if (PropsData[c].Completed === true) {
+          PropsData[c].Vision = true;
+        } else if (PropsData[c].Completed === false) {
+          PropsData[c].Vision = false;
+        }
+      }
+      this.setState({ data: PropsData });
+    };
 
-// window.addEventListener('load', () => {
-//   let RenderEveryThing = React.createElement(EveryThing, null);
-//   ReactDOM.render(RenderEveryThing, document.getElementById('root2'));
-// });
+    //check & uncheck
+    let ToggleTask = function (id) {
+      for (let j = 0; j < PropsData.length; j += 1) {
+        if (id === PropsData[j].Id && PropsData[j].Completed === false) {
+          PropsData[j].Completed = true;
+        } else if (id === PropsData[j].Id && PropsData[j].Completed === true) {
+          PropsData[j].Completed = false;
+        }
+      }
+      console.log(PropsData);
+    };
 
-// // let reactElement = React.createElement('H1', null, 'Hello World!');
-// // ReactDOM.render(reactElement, document.getElementById('root2'));
+    //Edit
+    let ActivateEditing = (id) => {
+      for (let k = 0; k < PropsData.length; k += 1) {
+        if (id === PropsData[k].Id && PropsData[k].Editing === false) {
+          PropsData[k].Editing = true;
+        } else if (id === PropsData[k].Id && PropsData[k].Editing === true) {
+          PropsData[k].Editing = false;
+        }
+      }
+      console.log(PropsData);
+      this.setState({ data: PropsData });
+    };
+
+    //Input Task Editing
+    let InputTaskEditing = (e) => {
+      this.state.InputTaskEditing = e.target.value;
+    };
+
+    //Cancel Editing
+    let CancelEditing = (id) => {
+      for (let m = 0; m < PropsData.length; m += 1) {
+        this.state.InputTaskEditing = '';
+        if (id === PropsData[m].Id) {
+          PropsData[m].Editing = false;
+        }
+      }
+      this.setState({ data: PropsData });
+    };
+
+    //Save Editing
+    let SaveEditing = (id) => {
+      for (let n = 0; n < PropsData.length; n += 1) {
+        if (id === PropsData[n].Id) {
+          PropsData[n].Name = this.state.InputTaskEditing;
+          PropsData[n].Id = this.state.InputTaskEditing;
+        }
+      }
+      this.state.InputTaskEditing = '';
+      this.setState({ data: PropsData });
+    };
+
+    //Delete
+    let DeleteTask = (id) => {
+      for (let x = 0; x < PropsData.length; x += 1) {
+        if (id === PropsData[x].Id) {
+          PropsData.splice(x, 1);
+        }
+      }
+      console.log(PropsData);
+      this.setState({ data: PropsData });
+    };
+
+    //UI rendering
+    for (let i = 0; i < PropsData.length; i += 1) {
+      if (PropsData[i].Editing === false && PropsData[i].Vision === true) {
+        // console.log(PropsData[i]);
+        //Viewing mode
+        const ViewTemplate = (
+          <li className='todo' key={i}>
+            <div className='StackSmall'>
+              <div className='C-Cb'>
+                <input
+                  id={PropsData[i].Id}
+                  type='checkbox'
+                  defaultChecked={PropsData[i].Completed}
+                  onChange={function () {
+                    ToggleTask(PropsData[i].Id);
+                  }}
+                />
+                <label className='TodoLabel' htmlFor={PropsData[i].Id}>
+                  {PropsData[i].Name}
+                </label>
+              </div>
+              <div className='BtnGroup'>
+                <button
+                  type='button'
+                  className='Btn'
+                  onClick={() => ActivateEditing(PropsData[i].Id)}
+                >
+                  Edit{' '}
+                  <span className='VisuallyHidden'>{PropsData[i].Name}</span>
+                </button>
+                <button
+                  type='button'
+                  className='Btn Btn__Danger'
+                  onClick={() => DeleteTask(PropsData[i].Id)}
+                >
+                  Delete{' '}
+                  <span className='VisuallyHidden'>{PropsData[i].Name}</span>
+                </button>
+              </div>
+            </div>
+          </li>
+        );
+
+        ViewTemplateTotal.push(ViewTemplate);
+      } else if (
+        PropsData[i].Editing === true &&
+        PropsData[i].Vision === true
+      ) {
+        console.log(PropsData[i]);
+        //Editing mode
+        const EditingTemplate = (
+          <form
+            className='StackSmall'
+            // onSubmit={HandleSubmit}
+          >
+            <div className='FormGroup'>
+              <label className='TodoLabel' htmlFor={PropsData[i].Id}>
+                New name for {PropsData[i].Name}
+              </label>
+              <input
+                id={PropsData[i].Id}
+                className='TodoText'
+                type='text'
+                // value={NewName}
+                onChange={InputTaskEditing}
+              />
+            </div>
+            <div className='BtnGroup'>
+              <button
+                type='button'
+                className='Btn TodoCancel'
+                onClick={() => CancelEditing(PropsData[i].Id)}
+              >
+                Cancel renaming {PropsData[i].Name}
+                {/* <span className='VisuallyHidden'>
+                  renaming {PropsData[i].Name}
+                </span> */}
+              </button>
+              <button
+                type='submit'
+                className='Btn Btn__Primary TodoEdit'
+                onClick={() => SaveEditing(PropsData[i].Id)}
+              >
+                Save new name for {PropsData[i].Name}
+                {/* <span className='VisuallyHidden'>
+                  new name for {PropsData[i].Name}
+                </span> */}
+              </button>
+            </div>
+          </form>
+        );
+
+        ViewTemplateTotal.push(EditingTemplate);
+      }
+    }
+
+    return (
+      <div>
+        <form>
+          <h2>What needs to be done?</h2>
+          <input type='text' onChange={InputNewTask}></input>
+          <button type='submit' onClick={AddNewTask}>
+            Add
+          </button>
+        </form>
+        <div>
+          <button onClick={showAll}>Show All tasks</button>
+          <button onClick={showActive}>Show Active tasks</button>
+          <button onClick={showCompleted}>Show Completed tasks</button>
+        </div>
+        <h2>{PropsData.length} tasks remaining</h2>
+        <ul>
+          {ViewTemplateTotal}
+          {/* {this.state.IsEditing ? EditingTemplate : ViewTemplate} */}
+        </ul>
+      </div>
+    );
+  }
+}
+
+window.addEventListener('load', () => {
+  ReactDOM.render(
+    <EveryThing />,
+    // <EveryThing data={PreSetTasks} number={56} />,
+    document.getElementById('root2')
+  );
+});
 
 export default App;

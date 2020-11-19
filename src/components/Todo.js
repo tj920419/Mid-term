@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react';
 
 export default function Todo(props) {
   const [newName, setNewName] = useState('');
-
   const [isEditing, setEditing] = useState(false);
 
   function handleChange(e) {
